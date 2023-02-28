@@ -19,18 +19,21 @@ while ($result=$cs -> fetchArray()) {
 }
 
 if ($usuario == $usuario2) {
-    
-    if ($password == $password2) {
-        echo 'Usuario y contraseña correcta';
-    }else{
-        echo 'ususario o contraseña incorrecto';
-    }
-}else{
-    echo 'ususario o contraseña incorrecto';
-}
+echo 'Usuario correcto';
 
+    if ($password == $password2) {
+        echo 'contraseña correcta';
+    }else{
+        echo 'contraseña incorrecta';
+    }
+
+
+}else{
+    echo 'Usuario incorrecto';
+}
 echo "<br>";
 echo "<br>";
+
 echo $usuario;
 echo "<br>";
 echo $password;
