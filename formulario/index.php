@@ -95,7 +95,7 @@ height: 100%;
                     class="img-fluid" width="500px">
                 </div>
                 <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-                  <form action="respuesta.php" method="post">
+                  <form action="cone.php" method="post">
                     <div class="form-outline mb-4">
                         <input type="text" class="form-control" name="usuario"
                         placeholder="Ingrese su Usuario" />

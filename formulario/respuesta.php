@@ -2,35 +2,32 @@
 error_reporting(E_ALL ^ E_DEPRECATED);
 header ("content-Type: text/html; cherset=UTF-8");
 
-$usuario = isset($_POST ['usuario']) ? $_POST ['usuario']: '';
+$correo = isset($_POST ['correo']) ? $_POST ['correo']: '';
 $password = isset($_POST ['password']) ? $_POST ['password']: '';
-
-$usuario2 = '';
+$correo2 = '';
 $password2 = '';
 
-$con= new SQLite3('data.db');
+$con= new SQLite3('base.db');
 
-$cs = $con -> query ("SELECT * FROM login WHERE usuario='$usuario' and password='$password'");
+$cs = $con -> query ("SELECT correo, password FROM login WHERE correo='$correo' and password='$password'");
 
-while ($result=$cs -> fetchArray()) {
-    $usuario2=$result['usuario'];
+while ($result=$cs -> fetchArray()){
+    $correo2=$result['correo'];
     $password2=$result['password'];
-
 }
 
-if ($usuario == $usuario2) {
+/* print_r($result);
+echo '<br>';
+echo $correo2;
+echo $password2; */
+
+if ($correo = $correo2) {
     
-    if ($password == $password2) {
-        echo 'Usuario y contraseña correcta';
+    if ($password = $password2) {
+        echo '<script> window.location=("index.php")</script>';
     }else{
         echo 'ususario o contraseña incorrecto';
     }
 }else{
     echo 'ususario o contraseña incorrecto';
 }
-
-echo "<br>";
-echo "<br>";
-echo $usuario;
-echo "<br>";
-echo $password;
