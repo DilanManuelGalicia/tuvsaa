@@ -13,8 +13,10 @@ $con= new SQLite3('base.db');
 
 $cs = $con -> query ("INSERT INTO login (correo,nombre,a_pater,a_mater,password) VALUES ('$correo','$nombre','$a_pater','$a_mater','$password')");
 
-echo $correo;
+
+echo '<script> window.location=("login.html")</script>';
+/* echo $correo;
 echo $nombre;
 echo $a_pater;
 echo $a_mater;
-echo $password;
+echo $password; */
