@@ -12,10 +12,10 @@ $password2 ='';
 
 
 $con=new SQLite3 ('base.db');
-$cs = $con -> query ("SELECT correo, password FROM login WHERE correo='$correo' and password= '$password'");
+$cs = $con -> query ("SELECT * FROM login WHERE correo='$correo' and password= '$password'");
 
 while ($result = $cs -> fetchArray()) {
-    $correo2 = $result ['correo'];
+    $correo2 = $result ['nombre'];
     $password2 = $result ['password'];
     
 }
