@@ -16,18 +16,20 @@ while ($result=$cs -> fetchArray()){
     $password2=$result['password'];
 }
 
-/* print_r($result);
+/* /* print_r($result);
 echo '<br>';
 echo $correo2;
 echo $password2; */
-
-if ($correo = $correo2) {
+/* */ 
+if ($correo == $correo2) {
     
-    if ($password = $password2) {
+    if ($password == $password2) {
         echo '<script> window.location=("index.html")</script>';
     }else{
-        echo 'ususario o contraseña incorrecto';
+        echo '<script>alert("Correo o Contraseña incorrecta")</script>';
+        echo '<script> window.location=("login.html")</script>';
     }
 }else{
-    echo 'ususario o contraseña incorrecto';
-}
+    echo '<script>alert("Correo o Contraseña incorrecta")</script>';
+        echo '<script> window.location=("login.html")</script>';
+} */
