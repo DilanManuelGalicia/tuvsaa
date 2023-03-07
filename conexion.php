@@ -7,10 +7,33 @@ $nombre = isset($_POST ['nombre']) ? $_POST ['nombre']: '';
 $a_pater = isset($_POST ['a_pater']) ? $_POST ['a_pater']: '';
 $a_mater = isset($_POST ['a_mater']) ? $_POST ['a_mater']: '';
 $password = isset($_POST ['password']) ? $_POST ['password']: '';
+$correo2 = '';
 
 
 $con= new SQLite3('base.db');
 
-$cs = $con -> query ("INSERT INTO login (correo,nombre,a_pater,a_mater,password) VALUES ('$correo','$nombre','$a_pater','$a_mater','$password')");
 
-echo '<script> window.location=("login.html")</script>';
+
+$cs = $con -> query ("SELECT * FROM login WHERE correo='$correo'");
+
+while ($result=$cs -> fetchArray()){
+    $correo2=$result['correo'];
+}
+
+if ($correo2 == $correo) {
+    echo '<script>alert("correo existente")</script>';
+    echo '<script> window.location=("registrar.html")</script>';
+
+}else{
+
+
+    $cs2 = $con -> query ("INSERT INTO login (correo,nombre,a_pater,a_mater,password) VALUES ('$correo','$nombre','$a_pater','$a_mater','$password')");
+    echo '<script>alert("correo registrado")</script>';
+
+
+    echo '<script> window.location=("login.html")</script>';
+
+}
+
+
+
