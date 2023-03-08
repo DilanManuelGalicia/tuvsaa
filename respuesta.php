@@ -9,11 +9,11 @@ $password2 = 'ñ';
 
 $con= new SQLite3('base.db');
 
-$cs = $con -> query ("SELECT correo, password FROM login WHERE correo='$correo' and password='$password'");
+$cs = $con -> query ("SELECT * FROM login WHERE correo='$correo'");
 
 while ($result=$cs -> fetchArray()){
     $correo2=$result['correo'];
-    $password2=$result['password'];
+
 }
 
 /* print_r($result);
@@ -22,15 +22,23 @@ echo $correo2;
 echo $password2; */
 
 if ($correo == $correo2) {
-    
-    if ($password == $password2) {
-        echo '<script> window.location=("index.html")</script>';
-    }else{
-        echo '<script>alert("Correo o contraseña incorrecto")</script>';
-        echo '<script> window.location=("login.html")</script>';
-    }
+
+    $cs2 = $con -> query ("SELECT * FROM login WHERE password='$password'");
+
+while ($result=$cs -> fetchArray()){
+    $password2=$result['password'];
+}
+
+if ($password == $password2) {
+    echo '<script> window.location=("index.html")</script>';
+
 }else{
-    echo '<script>alert("Correo o contraseña incorrecto")</script>';
+    echo '<script>alert("contraseña incorrecta")</script>';
         echo '<script> window.location=("login.html")</script>';
+} 
+
+}else{
+    echo '<script>alert("Correo no registrado")</script>';
+    echo '<script> window.location=("login.html")</script>';
 } 
 ?>
