@@ -1,5 +1,17 @@
+<?php
+session_start();
+
+
+
+if (empty($_SESSION['correo'])) {
+  header('location: login.html');
+}
+
+
+?>
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,7 +20,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/animate.min.css">
-    
+  
     <title>TUVSA</title>
     <style>
         *{
@@ -86,9 +98,9 @@ header .overlay {
                       <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="#">Inicio</a>
                       </li>
-                      <li class="nav-item">
+                      <!-- <li class="nav-item">
                         <a class="nav-link" href="login.html">Iniciar sesion</a>
-                      </li>
+                      </li> -->
                       <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                           Dropdown
@@ -104,10 +116,12 @@ header .overlay {
                         <a class="nav-link disabled">Disabled</a>
                       </li>
                     </ul>
-                    <form class="d-flex" role="search">
+<!--                     <form class="d-flex" role="search">
                       <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                      <button class="btn btn-outline-success" type="submit">Search</button>
-                    </form>
+                      <?php
+                      ?> -->
+                      <a class="btn btn-outline-success" href="cerrar.php">Cerrar sesion</a>
+<!--                     </form> -->
                   </div>
                 </div>
               </nav>
@@ -202,3 +216,5 @@ header .overlay {
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
 </body>
 </html>
+
+}
